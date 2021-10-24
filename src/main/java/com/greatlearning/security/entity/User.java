@@ -46,7 +46,7 @@ public class User {
     
     @Override
 	public String toString() {
-		return "USER: "  + ", Email = " + email + ", Type = "+ type;
+		return "USER: "  + " Email = " + email + ", Type = "+ type;
 	}
     
     public void setEmail(String email) {

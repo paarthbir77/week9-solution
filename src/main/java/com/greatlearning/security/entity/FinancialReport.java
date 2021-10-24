@@ -41,6 +41,12 @@ public class FinancialReport {
 		this.month = month;
 		this.year = year;
 	}
+	public String getUserId() {
+		return this.userID;
+	}
+	public int getBill() {
+		return this.billTotal;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

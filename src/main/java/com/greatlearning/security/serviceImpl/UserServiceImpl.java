@@ -63,14 +63,17 @@ public class UserServiceImpl implements UserService {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		LocalDateTime now = LocalDateTime.now();
 		String dateString= now.toString();
-		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		
-		String username;
-		if (principal instanceof UserDetails) {
-		  username = ((UserDetails)principal).getUsername();
-		} else {
-		  username = principal.toString();
+		String username="";
+		try {
+			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			if (principal instanceof UserDetails) {
+			  username = ((UserDetails)principal).getUsername();
+			} else {
+			  username = principal.toString();
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 		
 		FinancialReport finReport = new FinancialReport(username, bill, dateString.substring(8,10), dateString.substring(5, 7), dateString.substring(0, 4));

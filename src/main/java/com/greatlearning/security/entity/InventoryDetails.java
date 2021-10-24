@@ -16,6 +16,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class InventoryDetails {
 
+	InventoryDetails(){	
+	
+	}
+	public InventoryDetails(int id, String itemName, int price){	
+		this.id = id;
+		this.itemName = itemName;
+		this.price = price;
+	}
+	public InventoryDetails(String itemName, int price){	
+		this.itemName = itemName;
+		this.price = price;
+	}
+	
 	@Id
 	private Integer id;
 	

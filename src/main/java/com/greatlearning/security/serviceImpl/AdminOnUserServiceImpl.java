@@ -51,6 +51,9 @@ public class AdminOnUserServiceImpl implements AdminOnUserService{
 	public String updateUser(String email, String type) {
 		// TODO Auto-generated method stub
 		User user = userRepository.findUserById(email);
+		if(user == null) {
+			return null;
+		}
 		user.setType(type);
 		userRepository.save(user);
 		return user.toString();
